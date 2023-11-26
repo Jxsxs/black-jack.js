@@ -14,7 +14,7 @@ body{
 
 #start-button{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%);
 }
@@ -44,9 +44,9 @@ button{
 p{
     font-weight: bold;
     position: absolute;
-    top: 10%;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -0%);
     font-size: 30px;
     color: red;
     background: green;
