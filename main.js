@@ -50,20 +50,11 @@ function generateDeck () {
 function shuffleDeck(){
     deck.sort(() => Math.random() - 0.5);
 };
+
 function startGame(){
 hitButton.disabled = false;
 hidden.src = "https://cs8.pikabu.ru/images/big_size_comm/2016-01_5/1453493607126438736.jpg";
-let addedImg = document.querySelectorAll('#added-img')
-addedImg.forEach(function (element) {
-    element.remove();
-});
-dealerCards = [];
-playerCards = [];
-playerSum = 0;
-dealerSum = 0;
-playerScore.textContent = '';
-dealerScore.textContent = '';
-result.textContent='';
+resetGame();
 plusCard(dealerCards);
 plusCard(playerCards);
 plusCard(dealerCards);
@@ -72,13 +63,13 @@ playerDeck.insertAdjacentHTML('beforeend', `<img id="added-img" src="/cards/${pl
 dealerSum = getSum(dealerCards);
 playerSum = getSum(playerCards);
 startButton.style.visibility = "hidden";
-hitButton.style.visibility = "visible"
-stayButton.style.visibility = "visible"
-}  
+hitButton.style.visibility = "visible";
+stayButton.style.visibility = "visible";
+};
 
 function plusCard(people){
     people.push(deck.pop())
-}
+};
 
 function getValue(array, id) {
     let obj = array[id].split("-");
@@ -90,7 +81,7 @@ function getValue(array, id) {
         return 10;
     }
     return parseInt(value);
-}
+};
 
 function getSum(arr){
     let result = 0
@@ -98,7 +89,7 @@ function getSum(arr){
         result += getValue(arr, i);
     }
     return result
-}
+};
 
 function hit(){
     plusCard(playerCards);
@@ -113,7 +104,7 @@ function hit(){
         hitButton.disabled = true;
         stay()
     }
-}
+};
 
 function stay(){
 hidden.src = `/cards/${dealerCards[0]}.png`;
@@ -130,5 +121,19 @@ if(playerSum > dealerSum && playerSum<=21){
 startButton.style.visibility = "visible";
 hitButton.style.visibility = "hidden"
 stayButton.style.visibility = "hidden"
-}
+};
 
+function resetGame(){
+    let addedImg = document.querySelectorAll('#added-img')
+addedImg.forEach(function (element) {
+    element.remove();
+});
+dealerCards = [];
+playerCards = [];
+playerSum = 0;
+dealerSum = 0;
+playerScore.textContent = '';
+dealerScore.textContent = '';
+result.textContent='';
+startButton.textContent = 'New game';
+};
