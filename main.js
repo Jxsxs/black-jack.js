@@ -111,9 +111,9 @@ hidden.src = `/cards/${dealerCards[0]}.png`;
 playerScore.textContent = playerSum;
 dealerScore.textContent = dealerSum;
 hitButton.disabled = true;
-if(playerSum > dealerSum && playerSum<=21){
+if(playerSum > dealerSum && playerSum<=21 || dealerSum>21){
     result.textContent = 'CONGRATULATIONS!!! YOU ARE WIN!!!'
-}if(playerSum < dealerSum){
+}if(playerSum < dealerSum && dealerSum<=21){
     result.textContent = 'UNLUCK...'
 }if(playerSum == dealerSum){
     result.textContent = 'TIE'

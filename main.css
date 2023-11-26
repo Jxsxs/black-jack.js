@@ -49,5 +49,6 @@ p{
     transform: translate(-50%, -0%);
     font-size: 30px;
     color: red;
-    background: green;
+    background: darkgreen;
+    width: 100%;
 }
