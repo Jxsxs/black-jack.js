@@ -7,11 +7,6 @@ let canHit = true;
 
 let deck = [];
 
-window.onload = function(){
-    generateDeck();
-    shuffleDeck();
-};
-
 let startButton = null;
 let playerScore = null;
 let dealerScore = null;
@@ -124,6 +119,8 @@ stayButton.style.visibility = "hidden"
 };
 
 function resetGame(){
+    generateDeck();
+    shuffleDeck();
     let addedImg = document.querySelectorAll('#added-img')
 addedImg.forEach(function (element) {
     element.remove();
